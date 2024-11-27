@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="horizontal_margin">22dp</dimen>
+    <dimen name="vertical_margin">28dp</dimen>
+    <dimen name="title_size">16sp</dimen>
+    <dimen name="desc_size">12sp</dimen>
+    <dimen name="book_title_size">24sp</dimen>
+    <dimen name="img_width">80sp</dimen>
+    <dimen name="img_height">100sp</dimen>
+</resources>

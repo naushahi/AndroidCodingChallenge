@@ -1,15 +1,19 @@
 package com.example.otchallenge
 
 import android.app.Application
-import com.example.otchallenge.di.AppComponent
-import com.example.otchallenge.di.DaggerAppComponent
+import com.example.otchallenge.di.ApplicationComponent
+import com.example.otchallenge.di.DaggerApplicationComponent
+import com.example.otchallenge.di.module.ApplicationModule
 
 class MyApplication : Application() {
 
-	lateinit var appComponent: AppComponent
+	lateinit var applicationComponent: ApplicationComponent
 
 	override fun onCreate() {
 		super.onCreate()
-		appComponent = DaggerAppComponent.builder().build()
+		applicationComponent = DaggerApplicationComponent
+			.builder()
+			.applicationModule(ApplicationModule(this))
+			.build()
 	}
 }

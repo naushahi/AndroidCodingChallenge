@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<variable
+			name="view"
+			type="com.example.otchallenge.ui.bookslisting.BooksActivity" />
+	</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+	android:id="@+id/main"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".ui.bookslisting.BooksActivity">
+
+	<FrameLayout
+		android:id="@+id/wrapper"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+			android:id="@+id/refresh_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:id="@+id/books_title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					android:textSize="@dimen/book_title_size"
+					android:textStyle="bold"
+					android:layout_margin="@dimen/vertical_margin"/>
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/recycler_view"
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/books_title"
+					app:layout_constraintBottom_toBottomOf="parent"
+					tools:listitem="@layout/item_book"
+					/>
+						
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+		<LinearLayout
+			android:id="@+id/error_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:orientation="vertical"
+			android:visibility="gone"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" >
+
+			<androidx.appcompat.widget.AppCompatImageView
+				android:id="@+id/error_icon"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/ic_error"  />
+
+			<androidx.appcompat.widget.AppCompatTextView
+				android:id="@+id/error_message"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="16sp"
+				android:textColor="@android:color/black"
+				android:layout_marginTop="8dp" />
+
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/retry_button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/try_again"
+				android:layout_marginTop="@dimen/vertical_margin"
+				android:onClick="reLoad"/>
+		</LinearLayout>
+
+	</FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
